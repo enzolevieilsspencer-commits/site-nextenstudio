@@ -87,7 +87,7 @@ export function Pricing() {
             return (
               <div
                 key={tier.id}
-                className="group mx-6 h-full md:mx-0 [perspective:1200px]"
+                className={`group mx-6 h-full md:mx-0 [perspective:1200px]${tier.badge ? " pt-10 md:pt-0" : ""}`}
               >
                 <div
                   className={`relative h-full transition-transform duration-500 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(-10deg)_rotateX(5deg)_translateY(-10px)_scale(1.03)] ${

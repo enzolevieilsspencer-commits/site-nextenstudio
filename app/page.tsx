@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { Hero } from "../components/Hero";
+import { SiteStarsBackground } from "../components/ui/site-stars-background";
 
 // Lazy-load everything below the fold — cuts initial JS bundle significantly
 const Services = dynamic(() =>
@@ -47,7 +48,8 @@ export default function Home() {
   };
 
   return (
-    <>
+    <SiteStarsBackground>
+      {/* Shader s'active uniquement sur desktop (>1024px) via son check interne */}
       <SiteShaderWrapper />
       <script
         type="application/ld+json"
@@ -60,6 +62,6 @@ export default function Home() {
       <Pricing />
       <TrustMarquee />
       <FAQ />
-    </>
+    </SiteStarsBackground>
   );
 }
