@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Sora } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { LiquidGlassFilter } from "@/components/ui/liquid-glass";
-import { SiteStarsBackground } from "@/components/ui/site-stars-background";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -40,16 +39,14 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <LiquidGlassFilter />
-        <SiteStarsBackground>
-          <div
-            id="top"
-            className="flex min-h-full flex-col bg-transparent text-foreground"
-          >
-            <Navbar />
-            <main className="flex-1 pt-16">{children}</main>
-            <Footer />
-          </div>
-        </SiteStarsBackground>
+        <div
+          id="top"
+          className="flex min-h-full flex-col bg-[var(--background)] text-foreground"
+        >
+          <Navbar />
+          <main className="flex-1 pt-16">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Contact } from "../../components/Contact";
+import { SiteStarsBackground } from "../../components/ui/site-stars-background";
 
 export const metadata: Metadata = {
   title: "Contact — Nexten Studio",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <Contact />;
+  return (
+    <SiteStarsBackground>
+      <Contact />
+    </SiteStarsBackground>
+  );
 }

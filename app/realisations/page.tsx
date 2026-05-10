@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Realisations } from "../../components/Realisations";
+import { SiteStarsBackground } from "../../components/ui/site-stars-background";
 
 export const metadata: Metadata = {
   title: "Nos réalisations — Nexten Studio",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function RealisationsPage() {
-  return <Realisations />;
+  return (
+    <SiteStarsBackground>
+      <Realisations />
+    </SiteStarsBackground>
+  );
 }

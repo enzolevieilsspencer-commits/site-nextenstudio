@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteStarsBackground } from "../../components/ui/site-stars-background";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité — Nexten Studio",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 
 export default function ConfidentialitePage() {
   return (
+    <SiteStarsBackground>
     <section className="relative">
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         <header className="mb-10 text-center sm:mb-14">
@@ -190,5 +192,6 @@ export default function ConfidentialitePage() {
         </article>
       </div>
     </section>
+    </SiteStarsBackground>
   );
 }
