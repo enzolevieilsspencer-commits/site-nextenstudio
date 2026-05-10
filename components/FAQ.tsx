@@ -16,7 +16,7 @@ const items: FaqItem[] = [
     id: "prix",
     question: "C’est combien, un site vitrine avec Nexten Studio ?",
     answer:
-      "Nos sites vitrine démarrent à 800€. Le prix final dépend du nombre de pages, des fonctionnalités souhaitées (formulaire de contact, galerie, prise de rendez-vous…) et du niveau de personnalisation. Vous recevez un devis détaillé et gratuit sous 24h après notre premier échange.",
+      "Nos sites vitrine démarrent à 600€. Le prix final dépend du nombre de pages, des fonctionnalités souhaitées (formulaire de contact, galerie, prise de rendez-vous…) et du niveau de personnalisation. Vous recevez un devis détaillé et gratuit sous 24h après notre premier échange.",
   },
   {
     id: "delai",

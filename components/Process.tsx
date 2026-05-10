@@ -47,6 +47,12 @@ export function Process() {
   const lastScrollYRef = useRef(0); // tracks scroll direction for re-lock
 
   useEffect(() => {
+    // On mobile, skip scroll-jacking entirely — show all cards statically
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      setProgress(1);
+      return;
+    }
+
     const section = sectionRef.current;
     if (!section) return;
 
@@ -437,7 +443,7 @@ export function Process() {
                 </div>
 
                 {/* Mobile: stack */}
-                <div className="grid grid-cols-1 gap-4 md:hidden">
+                <div className="grid grid-cols-1 gap-3 md:hidden">
                   {steps.map((step, idx) => {
                     const threshold = (2 * idx + 1) / (2 * steps.length);
                     const showAt =
@@ -450,7 +456,7 @@ export function Process() {
                       <div
                         key={step.title}
                         className={[
-                          "transition-all duration-700 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,2.2)]",
+                          "mx-6 transition-all duration-700 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,2.2)]",
                           isVisible
                             ? "opacity-100 translate-y-0 hover:-translate-y-1"
                             : "opacity-0 translate-y-3 pointer-events-none",
@@ -459,9 +465,9 @@ export function Process() {
                         <LiquidGlass
                           glow={isReached ? "blue" : "none"}
                           blur={isReached}
-                          className="p-4"
+                          className="p-4 text-center"
                         >
-                          <div className="flex items-center gap-3">
+                          <div className="flex flex-col items-center gap-2">
                             <div
                               className={[
                                 "flex h-9 w-9 items-center justify-center rounded-full border",

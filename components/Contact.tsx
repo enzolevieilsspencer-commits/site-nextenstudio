@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, Mail, Phone } from "lucide-react";
+import { Calendar, Mail, MapPin, Phone } from "lucide-react";
 import { useMemo, useState } from "react";
 import { GlassButton } from "@/components/ui/glass-button";
 import { LiquidGlass } from "@/components/ui/liquid-glass";
@@ -161,30 +161,61 @@ export function Contact() {
             </LiquidGlass>
           </form>
 
-          {/* SIDE CONTACT METHODS */}
+          {/* SIDE — Notre agence */}
           <aside className="flex flex-col gap-4 lg:col-span-5">
-            <ContactCard
-              icon={<Mail className="h-4 w-4" aria-hidden="true" />}
-              label="Email"
-              value="nexten.studio@gmail.com"
-              href="mailto:nexten.studio@gmail.com"
-              hint="Réponse sous 24–48h."
-            />
-            <ContactCard
-              icon={<Phone className="h-4 w-4" aria-hidden="true" />}
-              label="Téléphone"
-              value="07 62 02 58 98"
-              href="tel:+33762025898"
-              hint="Du lundi au vendredi, 9h–18h."
-            />
-            <ContactCard
-              icon={<Calendar className="h-4 w-4" aria-hidden="true" />}
-              label="Réserver un appel"
-              value="30 min, gratuit"
-              href={calendlyUrl || "mailto:nexten.studio@gmail.com"}
-              external={calendlyIsExternal}
-              hint="On repart avec un plan clair."
-            />
+            <LiquidGlass glow="none" className="p-6 sm:p-7">
+              <h2 className="text-lg font-semibold text-white">
+                Notre agence
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-foreground/65">
+                Notre agence est disponible du lundi au vendredi de 9h à 18h
+                (hors week-ends et jours fériés).
+              </p>
+
+              <ul className="mt-5 flex flex-col gap-4">
+                <li className="flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-foreground/70">
+                    <Phone className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <a
+                    href="tel:+33762025898"
+                    className="text-sm font-medium text-foreground underline underline-offset-4 hover:text-white"
+                  >
+                    07 62 02 58 98
+                  </a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-foreground/70">
+                    <Mail className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <a
+                    href="mailto:nexten.studio@gmail.com"
+                    className="text-sm font-medium text-foreground underline underline-offset-4 hover:text-white"
+                  >
+                    nexten.studio@gmail.com
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-foreground/70">
+                    <MapPin className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <span className="text-sm font-medium text-foreground">
+                    Honfleur, Normandie
+                  </span>
+                </li>
+              </ul>
+
+              <div className="mt-6">
+                <ContactCard
+                  icon={<Calendar className="h-4 w-4" aria-hidden="true" />}
+                  label="Réserver un appel"
+                  value="30 min, gratuit"
+                  href={calendlyUrl || "mailto:nexten.studio@gmail.com"}
+                  external={calendlyIsExternal}
+                  hint="On repart avec un plan clair."
+                />
+              </div>
+            </LiquidGlass>
           </aside>
         </div>
       </div>

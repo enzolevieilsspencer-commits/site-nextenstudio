@@ -20,14 +20,14 @@ const tiers: Tier[] = [
     id: "essentiel",
     name: "Essentiel",
     description: "Pour lancer votre présence en ligne rapidement.",
-    price: { amount: "800€", suffix: "à partir de" },
+    price: { amount: "600€", suffix: "à partir de" },
     features: [
-      { label: "Site vitrine 3–5 pages", included: true },
+      { label: "Site vitrine 1–3 pages", included: true },
       { label: "Design responsive mobile", included: true },
       { label: "Formulaire de contact", included: true },
       { label: "SEO local de base", included: true },
       { label: "Google My Business", included: true },
-      { label: "Livraison en 2 semaines", included: true },
+      { label: "Livraison en 5–7 jours", included: true },
       { label: "Prise de RDV en ligne", included: false },
     ],
     cta: { label: "Demander un devis", href: "/contact" },
@@ -36,9 +36,9 @@ const tiers: Tier[] = [
     id: "pro",
     name: "Pro",
     description: "Pour un site complet qui génère des contacts.",
-    price: { amount: "1 200€", suffix: "à partir de" },
+    price: { amount: "800€", suffix: "à partir de" },
     features: [
-      { label: "Site vitrine 5–8 pages", included: true },
+      { label: "Site vitrine 3–5 pages", included: true },
       { label: "Design responsive mobile", included: true },
       { label: "Formulaire de contact", included: true },
       { label: "SEO local complet", included: true },
@@ -73,9 +73,6 @@ export function Pricing() {
     <section id="tarifs" className="relative">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-3 text-center sm:gap-4">
-          <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs text-foreground/70">
-            Nos tarifs
-          </div>
           <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
             Nos tarifs
           </h2>
@@ -84,13 +81,13 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="mt-8 grid items-stretch gap-4 sm:mt-10 sm:gap-6 md:grid-cols-3">
+        <div className="mt-14 grid items-stretch gap-3 sm:mt-16 sm:gap-6 md:grid-cols-3">
           {tiers.map((tier) => {
             const isCustom = tier.price.amount === "Sur devis";
             return (
               <div
                 key={tier.id}
-                className="group h-full [perspective:1200px]"
+                className="group mx-6 h-full md:mx-0 [perspective:1200px]"
               >
                 <div
                   className={`relative h-full transition-transform duration-500 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(-10deg)_rotateX(5deg)_translateY(-10px)_scale(1.03)] ${
@@ -109,14 +106,14 @@ export function Pricing() {
                   glow={tier.highlighted ? "blue" : "none"}
                   glowOrigin="bc"
                 >
-                  <h3 className="text-xl font-semibold tracking-tight text-white">
+                  <h3 className="text-xl font-semibold tracking-tight text-white text-center md:text-left">
                     {tier.name}
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-foreground/70">
+                  <p className="mt-2 text-sm leading-6 text-foreground/70 text-center md:text-left">
                     {tier.description}
                   </p>
 
-                  <div className="mt-5 flex items-baseline gap-2">
+                  <div className="mt-5 flex items-baseline justify-center gap-2 md:justify-start">
                     <span className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                       {tier.price.amount}
                     </span>
@@ -131,7 +128,7 @@ export function Pricing() {
 
                   <ul className="space-y-3">
                     {tier.features.map((f) => (
-                      <li key={f.label} className="flex items-start gap-3">
+                      <li key={f.label} className="flex items-start justify-center gap-3 md:justify-start">
                         {f.included ? (
                           <Check
                             className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400"
@@ -181,8 +178,7 @@ export function Pricing() {
         </div>
 
         <p className="mt-8 text-center text-xs text-white/60 sm:mt-10 sm:text-sm">
-          Tous les tarifs sont HT · Hébergement et nom de domaine non inclus
-          (~15€/mois) · Aucun engagement de durée
+          Hébergement et nom de domaine non inclus (~15€/mois) · Aucun engagement de durée
         </p>
       </div>
     </section>

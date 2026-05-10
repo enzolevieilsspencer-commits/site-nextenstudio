@@ -54,8 +54,19 @@ export async function POST(req: Request) {
   });
 
   if (error) {
+    // Always log the Resend error server-side so it surfaces in next dev /
+    // Vercel logs. Without this, every failure looks identical client-side
+    // and the actual cause (unverified domain, bad API key, …) is invisible.
+    console.error("[contact] Resend send failed:", error);
+
+    // Surface the underlying message in development to speed up debugging.
+    const isDev = process.env.NODE_ENV !== "production";
     return NextResponse.json(
-      { error: "Impossible d’envoyer le message pour le moment." },
+      {
+        error: isDev
+          ? `Resend: ${error.name ?? "error"} — ${error.message ?? "unknown"}`
+          : "Impossible d’envoyer le message pour le moment.",
+      },
       { status: 502 },
     );
   }

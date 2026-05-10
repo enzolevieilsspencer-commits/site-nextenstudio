@@ -1,10 +1,23 @@
-import { FAQ } from "../components/FAQ";
+import dynamic from "next/dynamic";
 import { Hero } from "../components/Hero";
-import { Pricing } from "../components/Pricing";
-import { Process } from "../components/Process";
-import { Services } from "../components/Services";
-import { TrustMarquee } from "../components/TrustMarquee";
-import { SiteShader } from "../components/ui/site-shader";
+
+// Lazy-load everything below the fold — cuts initial JS bundle significantly
+const Services = dynamic(() =>
+  import("../components/Services").then((m) => ({ default: m.Services }))
+);
+const Process = dynamic(() =>
+  import("../components/Process").then((m) => ({ default: m.Process }))
+);
+const Pricing = dynamic(() =>
+  import("../components/Pricing").then((m) => ({ default: m.Pricing }))
+);
+const TrustMarquee = dynamic(() =>
+  import("../components/TrustMarquee").then((m) => ({ default: m.TrustMarquee }))
+);
+const FAQ = dynamic(() =>
+  import("../components/FAQ").then((m) => ({ default: m.FAQ }))
+);
+import { SiteShaderWrapper } from "../components/ui/site-shader-wrapper";
 
 export default function Home() {
   const jsonLd = {
@@ -35,7 +48,7 @@ export default function Home() {
 
   return (
     <>
-      <SiteShader />
+      <SiteShaderWrapper />
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger

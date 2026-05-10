@@ -73,7 +73,7 @@ export function Hero() {
                 key={item.title}
                 className="transition-all duration-700 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,2.2)] hover:-translate-y-1"
               >
-                <LiquidGlass glow="none" className="px-4 py-3 sm:px-5 sm:py-4 text-left">
+                <LiquidGlass glow="none" className="px-4 py-3 sm:px-5 sm:py-4 text-center sm:text-left">
                   <p className="text-sm font-semibold">{item.title}</p>
                   <p className="mt-1 text-xs sm:text-sm text-foreground/70">{item.text}</p>
                 </LiquidGlass>

@@ -75,6 +75,10 @@ export function SiteShader() {
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
+    // Skip WebGL on mobile and tablet
+    const isSmallScreen = window.matchMedia("(max-width: 1024px)").matches;
+    if (isSmallScreen) return;
+
     const gl = canvas.getContext("webgl", { antialias: true, alpha: true });
     if (!gl) return;
 

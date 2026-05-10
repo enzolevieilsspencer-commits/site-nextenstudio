@@ -181,3 +181,18 @@ html {
     transform: translateX(-50%);
   }
 }
+
+@keyframes starScroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [style*="starScroll"] {
+    animation: none !important;
+  }
+}
